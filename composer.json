@@ -1,0 +1,40 @@
+{
+  "name": "moonpie/think-ipblock",
+  "description": "TP6 IP黑名单中间件服务",
+  "type": "library",
+  "require": {
+    "php": ">=7",
+    "moonpie/ipblock": "^1.0",
+    "topthink/framework": "^6.0"
+  },
+  "license": "apache2.0",
+  "authors": [
+    {
+      "name": "chouyee",
+      "email": "875010341@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Moonpie\\Tp6Tools\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Moonpie\\Test\\Tp6Tools\\IpBlock\\": "tests/"
+    }
+  },
+  "extra": {
+    "think": {
+      "services": [
+        "Moonpie\\Tp6Tools\\IpBlock\\Service"
+      ],
+      "config": {
+        "ipblock": "src/config.php"
+      }
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.5"
+  }
+}
