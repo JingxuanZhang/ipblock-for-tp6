@@ -7,6 +7,7 @@ namespace Moonpie\Tp6Tools\IpBlock\Middleware;
 use Moonpie\IpBlock\IpLocatorInterface;
 use Moonpie\IpBlock\IpWhitelistInterface;
 use think\exception\HttpException;
+use think\Request;
 
 class IpBlock
 {
@@ -48,9 +49,13 @@ class IpBlock
         return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
     }
 
-    public function handle($request, \Closure $next)
+    public function handle(Request $request, \Closure $next)
     {
         $ip = $this->getIp();
+
+        if (false === $ip) {
+            $ip = $request->ip();
+        }
 
         $ip_location = $this->locator->getLocation($ip);
 
