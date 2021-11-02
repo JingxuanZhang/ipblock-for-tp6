@@ -6,6 +6,7 @@ namespace Moonpie\Tp6Tools\IpBlock\Middleware;
 
 use Moonpie\IpBlock\IpLocatorInterface;
 use Moonpie\IpBlock\IpWhitelistInterface;
+use think\exception\HttpException;
 
 class IpBlock
 {
@@ -71,7 +72,7 @@ class IpBlock
                 );
             }
 
-            return abort(404, '网站维护中');
+            throw new HttpException(404, '网站维护中');
         }
 
         return $next($request);

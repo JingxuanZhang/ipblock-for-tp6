@@ -16,7 +16,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Moonpie\\Tp6Tools\\": "src/"
+      "Moonpie\\Tp6Tools\\IpBlock\\": "src/"
     }
   },
   "autoload-dev": {
